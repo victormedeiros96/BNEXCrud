@@ -67,7 +67,7 @@ DATABASES = {
         'NAME': 'bnexdb',
         'USER': 'bnex',
         'PASSWORD': 'bnexpwd',
-        'HOST': 'http://localhost',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
