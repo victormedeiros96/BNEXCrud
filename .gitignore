@@ -1,6 +1,7 @@
 .vscode/
 
 backend/venv/
+backend/Backend/Produtos/migrations/*
 **/__pycache__/
 **/*.pyc
 **/*.pyo
