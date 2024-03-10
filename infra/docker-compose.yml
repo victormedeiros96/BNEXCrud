@@ -19,9 +19,7 @@ services:
       pip install -r /code/requirements.txt && 
       python manage.py makemigrations &&
       python manage.py migrate &&
-      python manage.py runserver 0.0.0.0:8000 &&
-      echo \"from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'pass') if not User.objects.filter(username='admin').exists() else print('Superuser already exists.')\" | python manage.py shell
-      "
+      python manage.py runserver 0.0.0.0:8000"
     volumes:
       - /home/ec2-user/BNEXCrud/backend/Backend:/code
     depends_on:
