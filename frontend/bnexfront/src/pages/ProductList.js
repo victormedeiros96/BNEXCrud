@@ -7,7 +7,7 @@ const ProductList = () => {
   console.log("Entrou aqui no product List1");
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
-    fetch(`http://ec2-44-204-169-176.compute-1.amazonaws.com:8000/produtos/`, {
+    fetch(`http://localhost:8000/produtos/`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
