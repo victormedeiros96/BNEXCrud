@@ -13,7 +13,7 @@ const ProductForm = () => {
   useEffect(() => {
     if (id) {
       const token = localStorage.getItem('accessToken');
-      fetch(`http://localhost:8000/produtos/${id}/`, {
+      fetch(`http://ec2-44-204-169-176.compute-1.amazonaws.com/:8000/produtos/${id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -59,7 +59,7 @@ const ProductForm = () => {
       body: JSON.stringify(formData),
     };
 
-    const url = id ? `http://localhost:8000/produtos/${id}/` : `http://localhost:8000/produtos/`;
+    const url = id ? `http://ec2-44-204-169-176.compute-1.amazonaws.com:8000/produtos/${id}/` : `http://localhost:8000/produtos/`;
 
     fetch(url, requestOptions)
       .then(response => {

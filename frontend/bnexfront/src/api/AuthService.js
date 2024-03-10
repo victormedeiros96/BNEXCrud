@@ -1,5 +1,4 @@
-const API_URL = `http://localhost:8000/api/`;
-
+const API_URL = `http://ec2-44-204-169-176.compute-1.amazonaws.com/:8000/api/`;
 export const login = async (username, password) => {
   const response = await fetch(`${API_URL}token/`, {
     method: 'POST',
