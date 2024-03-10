@@ -1,0 +1,2 @@
+from .produto import ProdutoListSerializer,ProdutoDetailsSerializer
+from .serial_user import UserSerializer
