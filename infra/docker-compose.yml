@@ -15,7 +15,7 @@ services:
 
   backend:
     image: python:3.11
-    command: /bin/bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    command: /bin/bash -c "pip install -r ../requirements.txt && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - /home/ubuntu/BNEXCrud/backend/Backend:/code
     depends_on:
