@@ -67,7 +67,7 @@ DATABASES = {
         'NAME': 'bnexdb',
         'USER': 'bnex',
         'PASSWORD': 'bnexpwd',
-        'HOST': 'https://ec2-44-204-169-176.compute-1.amazonaws.com',
+        'HOST': 'http://localhost',
         'PORT': '5432',
     }
 }
