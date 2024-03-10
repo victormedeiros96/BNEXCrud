@@ -13,7 +13,7 @@ const ProductForm = () => {
   useEffect(() => {
     if (id) {
       const token = localStorage.getItem('accessToken');
-      fetch(`${process.env.REACT_APP_BACKEND_URL}/produtos/${id}/`, {
+      fetch(`http://localhost:8000/produtos/${id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -59,7 +59,7 @@ const ProductForm = () => {
       body: JSON.stringify(formData),
     };
 
-    const url = id ? `${process.env.REACT_APP_BACKEND_URL}/produtos/${id}/` : `${process.env.REACT_APP_BACKEND_URL}/produtos/`;
+    const url = id ? `http://localhost:8000/produtos/${id}/` : `http://localhost:8000/produtos/`;
 
     fetch(url, requestOptions)
       .then(response => {

@@ -8,7 +8,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/produtos/${id}/`, {
+    fetch(`http://localhost:8000/produtos/${id}/`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

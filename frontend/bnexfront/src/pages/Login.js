@@ -13,7 +13,7 @@ const Login = () => {
     try {
       const isAuthenticated = await login(username, password);
       if (isAuthenticated) {
-        navigate('/products'); // Redireciona para produtos
+        navigate('/products');
       } else {
         console.log("Login falhou.");
       }
