@@ -10,15 +10,17 @@ services:
       POSTGRES_DB: bnexdb
       POSTGRES_USER: bnex
       POSTGRES_PASSWORD: bnexpwd
+
   backend:
     build: /home/ubuntu/BNEXCrud/backend/Backend
-    command: python manage runserver.py 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      /home/ubuntu/BNEXCrud/backend/Backend:/code
+      - /home/ubuntu/BNEXCrud/backend/Backend:/code
     depends_on:
-      db
+      - db
     environment:
-      DATABASE_URL=postgres://bnex:bnexpwd@db:5432/bnexdb
+      DATABASE_URL: postgres://bnex:bnexpwd@db:5432/bnexdb
+
   frontend:
     build: /home/ubuntu/BNEXCrud/frontend/bnexfront
     volumes:
