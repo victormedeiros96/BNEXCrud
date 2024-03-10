@@ -70,6 +70,17 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bnexdb',
+        'USER': 'bnex',
+        'PASSWORD': 'bnexpwd',
+        'HOST': 'https://ec2-44-204-169-176.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
 
 
 # Password validation
