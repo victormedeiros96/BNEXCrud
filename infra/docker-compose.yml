@@ -1,0 +1,35 @@
+version: '1.0'
+
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: bnexdb
+      POSTGRES_USER: bnex
+      POSTGRES_PASSWORD: bnexpwd
+  backend:
+    build: /home/ubuntu/BNEXCrud/backend/Backend
+    command: python manage runserver 0.0.0.0:8000
+    volumes:
+      /home/ubuntu/BNEXCrud/backend/Backend:/code
+    depends_on:
+      db
+    environment:
+      DATABASE_URL=postgres://bnex:bnexpwd@db:5432/bnexdb
+  frontend:
+    build: /home/ubuntu/BNEXCrud/frontend/bnexfront
+    volumes:
+      - /home/ubuntu/BNEXCrud/frontend/bnexfront:/app
+      - /app/node_modules
+    ports:
+      - "3000:30\00" #
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:8000 #
+
+volumes:
+  postgres_data:
