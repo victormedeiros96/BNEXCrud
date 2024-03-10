@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch('http://localhost:8000/api/token/', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/token/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,13 +38,13 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
-    setIsAuthenticated(false); // Atualizar o estado para falso após logout
+    setIsAuthenticated(false);
   };
 
   const refreshAccessToken = async () => {
     try {
       const refreshToken = localStorage.getItem('refreshToken');
-      const response = await fetch('http://localhost:8000/api/token/refresh/', {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/token/refresh/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

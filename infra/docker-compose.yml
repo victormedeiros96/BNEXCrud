@@ -12,7 +12,7 @@ services:
       POSTGRES_PASSWORD: bnexpwd
   backend:
     build: /home/ubuntu/BNEXCrud/backend/Backend
-    command: python manage runserver 0.0.0.0:8000
+    command: python manage runserver.py 0.0.0.0:8000
     volumes:
       /home/ubuntu/BNEXCrud/backend/Backend:/code
     depends_on:
@@ -25,11 +25,11 @@ services:
       - /home/ubuntu/BNEXCrud/frontend/bnexfront:/app
       - /app/node_modules
     ports:
-      - "3000:30\00" #
+      - "3000:3000" 
     depends_on:
       - backend
     environment:
-      - REACT_APP_BACKEND_URL=http://backend:8000 #
+      - REACT_APP_BACKEND_URL=http://backend:8000
 
 volumes:
   postgres_data:

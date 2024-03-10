@@ -1,4 +1,3 @@
-// src/pages/Register.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { register } from '../api/AuthService';
@@ -13,7 +12,7 @@ const Register = () => {
     try {
       await register(username, password);
       alert("Registro bem-sucedido!");
-      navigate('/login'); // Redireciona o usuário para a página de login após o registro
+      navigate('/login');
     } catch (error) {
       alert("Falha no registro, tente novamente.");
       console.error(error);

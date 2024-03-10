@@ -8,7 +8,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
-    fetch(`http://localhost:8000/produtos/${id}/`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/produtos/${id}/`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -24,7 +24,7 @@ const ProductDetails = () => {
   }, [id]);
 
   if (!product) {
-    return <div>Carregando...</div>; // Ou alguma representação de loading
+    return <div>Carregando...</div>;
   }
 
   return (
