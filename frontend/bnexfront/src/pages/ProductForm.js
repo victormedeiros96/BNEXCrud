@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
+const API_URL = 'http://backend:8000/produtos/';
 const ProductForm = () => {
   const [formData, setFormData] = useState({
     nome: '',
@@ -13,7 +13,7 @@ const ProductForm = () => {
   useEffect(() => {
     if (id) {
       const token = localStorage.getItem('accessToken');
-      fetch(`http://ec2-44-204-169-176.compute-1.amazonaws.com/:8000/produtos/${id}/`, {
+      fetch(`${API_URL}${id}/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -59,7 +59,7 @@ const ProductForm = () => {
       body: JSON.stringify(formData),
     };
 
-    const url = id ? `http://localhost:8000/produtos/${id}/` : `http://localhost:8000/produtos/`;
+    const url = id ? `${API_URL}${id}/` : `${API_URL}`;
 
     fetch(url, requestOptions)
       .then(response => {

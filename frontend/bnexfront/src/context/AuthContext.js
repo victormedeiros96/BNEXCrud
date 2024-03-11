@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
 
 const AuthContext = createContext();
-
+const API_URL = 'http://backend:8000/api/';
 export function useAuth() {
   return useContext(AuthContext);
 }
@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch('http://ec2-44-204-169-176.compute-1.amazonaws.com:8000/api/token/', {
+      const response = await fetch(`${API_URL}token/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
   const refreshAccessToken = async () => {
     try {
       const refreshToken = localStorage.getItem('refreshToken');
-      const response = await fetch('http://ec2-44-204-169-176.compute-1.amazonaws.com:8000/api/token/refresh/', {
+      const response = await fetch(`${API_URL}token/refresh/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

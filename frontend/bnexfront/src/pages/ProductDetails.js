@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -8,7 +7,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
-    fetch(`http://localhost:8000/produtos/${id}/`, {
+    fetch(`http://backend:8000/produtos/${id}/`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

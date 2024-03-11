@@ -10,7 +10,8 @@ services:
       POSTGRES_DB: bnexdb
       POSTGRES_USER: bnex
       POSTGRES_PASSWORD: bnexpwd
-    network_mode: "host"
+    ports:
+      - "5432:5432"
 
   backend:
     image: python:3.11
@@ -25,9 +26,10 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgres://bnex:bnexpwd@localhost:5432/bnexdb
+      DATABASE_URL: postgres://bnex:bnexpwd@db:5432/bnexdb
     working_dir: /code
-    network_mode: "host"
+    ports:
+      - "8000:8000"
 
   frontend:
     image: node:latest
@@ -38,9 +40,13 @@ services:
     depends_on:
       - backend
     environment:
-      REACT_APP_BACKEND_URL: "http://localhost:8000"
+      REACT_APP_BACKEND_URL: "http://backend:8000"
     working_dir: /app
-    network_mode: "host"
+    ports:
+      - "3000:3000"
 
 volumes:
   postgres_data:
+networks:
+  default:
+    name: my_internal_network
