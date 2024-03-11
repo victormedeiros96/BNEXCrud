@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav style="padding-right:2%;padding-left:2%;">
+    <nav>
       <div className="nav-wrapper ">
         <Link to="/" className="brand-logo left hide-on-med-and-down">BNEX Products</Link>
         <ul id="nav-mobile" className="right">
