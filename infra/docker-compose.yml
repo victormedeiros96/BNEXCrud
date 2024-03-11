@@ -14,7 +14,7 @@ services:
       - "5432:5432"
 
   backend:
-    build: ./backend/Backend
+    build: ../backend/Backend
     depends_on:
       - db
     ports:
@@ -23,7 +23,7 @@ services:
       DATABASE_URL: postgres://bnex:bnexpwd@db:5432/bnexdb
 
   frontend:
-    build: ./frontend/bnexfront
+    build: ../frontend/bnexfront
     depends_on:
       - backend
     ports:
