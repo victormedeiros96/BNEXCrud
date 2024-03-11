@@ -21,7 +21,7 @@ services:
       python manage.py migrate &&
       python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - /home/ec2-user/BNEXCrud/backend/Backend:/code
+      - ../backend/Backend:/code
     depends_on:
       - db
     environment:
@@ -33,7 +33,7 @@ services:
     image: node:latest
     command: /bin/bash -c "npm install && npm start"
     volumes:
-      - /home/ec2-user/BNEXCrud/frontend/bnexfront:/app 
+      - ../frontend/bnexfront:/app 
       - /app/node_modules
     depends_on:
       - backend
