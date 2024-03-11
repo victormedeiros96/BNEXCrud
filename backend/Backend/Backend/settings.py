@@ -135,7 +135,6 @@ LOGGING = {
 }
 CORS_ALLOWED_ORIGINS = [
     'http://ec2-44-204-169-176.compute-1.amazonaws.com:3000',
-    'localhost:3000',
     'http://localhost:3000',
-    '177.132.168.189'
+    '*'
 ]
