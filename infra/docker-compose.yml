@@ -29,6 +29,8 @@ services:
       - backend
     ports:
       - "3000:80"
+    env_file:
+      - ../frontend/bnexfront/.env
 
 volumes:
   postgres_data:
