@@ -12,9 +12,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav>
-      <div className="nav-wrapper">
-        <Link to="/" className="brand-logo hide-on-med-and-down">BNEX Products</Link>
+    <nav style="padding-right:2%;padding-left:2%;">
+      <div className="nav-wrapper ">
+        <Link to="/" className="brand-logo left hide-on-med-and-down">BNEX Products</Link>
         <ul id="nav-mobile" className="right">
           {isAuthenticated ? (
             <>
