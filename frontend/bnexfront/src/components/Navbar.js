@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav>
       <div className="nav-wrapper">
-        <Link to="/" className="brand-logo">BNEX Products</Link>
+        <Link to="/" className="brand-logo hide-on-med-and-down">BNEX Products</Link>
         <ul id="nav-mobile" className="right">
           {isAuthenticated ? (
             <>
