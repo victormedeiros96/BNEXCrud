@@ -4,6 +4,8 @@
 
 Esse projeto trata-se de uma POC (proof of concept), para integração e deploy de um CRUD utilizando as tecnologias Python/Django, React JS, e Docker.
 
+(Teste em: http://ec2-44-204-169-176.compute-1.amazonaws.com:3000)
+
 <img src="https://static.vecteezy.com/system/resources/previews/019/629/263/original/cobra-icon-vector.jpg" >
 
 ## Parte 1 | Arquitetura Back-End
