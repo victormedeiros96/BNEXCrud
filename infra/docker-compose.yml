@@ -23,14 +23,15 @@ services:
       DATABASE_URL: postgres://bnex:bnexpwd@db:5432/bnexdb
  
   frontend:
-    build: 
-      context: ../frontend/bnexfront
+    build: ../frontend/bnexfront
+    volumes:
+      - ../frontend/bnexfront:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      REACT_APP_API_URL: "http://ec2-44-204-169-176.compute-1.amazonaws.com:8000"
     depends_on:
       - backend
-    ports:
-      - "3000:80"
-    env_file:
-      - ../frontend/bnexfront/.env
-
 volumes:
   postgres_data:
