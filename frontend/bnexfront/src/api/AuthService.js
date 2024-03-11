@@ -1,4 +1,5 @@
-const API_URL = 'http://backend:8000/api/';
+const API_BASE = process.env.REACT_APP_API_URL;
+const API_URL = `${API_BASE}:8000/api/`;
 export const login = async (username, password) => {
   const response = await fetch(`${API_URL}token/`, {
     method: 'POST',

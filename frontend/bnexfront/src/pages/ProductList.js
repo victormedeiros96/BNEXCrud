@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+const API_BASE = process.env.REACT_APP_API_URL;
+const API_URL = `${API_BASE}:8000/produtos/`;
 const ProductList = () => {
   console.log("Entrou aqui no product List");
   const [products, setProducts] = useState([]);
   console.log("Entrou aqui no product List1");
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
-    fetch('http://backend:8000/produtos/', {
+    fetch(API_URL, {
       headers: {
         Authorization: `Bearer ${token}`
       }

@@ -1,7 +1,8 @@
 import React, { createContext, useState, useContext } from 'react';
 
 const AuthContext = createContext();
-const API_URL = 'http://backend:8000/api/';
+const API_BASE = process.env.REACT_APP_API_URL;
+const API_URL = `${API_BASE}:8000/api/`;
 export function useAuth() {
   return useContext(AuthContext);
 }

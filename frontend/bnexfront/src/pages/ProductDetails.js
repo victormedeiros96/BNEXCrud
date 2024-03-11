@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+const API_BASE = process.env.REACT_APP_API_URL;
+const API_URL = `${API_BASE}:8000/produtos/`;
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
@@ -7,7 +9,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
-    fetch(`http://backend:8000/produtos/${id}/`, {
+    fetch(`${API_URL}${id}/`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-const API_URL = 'http://backend:8000/produtos/';
+const API_BASE = process.env.REACT_APP_API_URL;
+const API_URL = `${API_BASE}:8000/produtos/`;
 const ProductForm = () => {
   const [formData, setFormData] = useState({
     nome: '',
