@@ -14,39 +14,22 @@ services:
       - "5432:5432"
 
   backend:
-    image: python:3.11
-    command: >
-      /bin/bash -c "
-      pip install -r /code/requirements.txt && 
-      python manage.py makemigrations &&
-      python manage.py migrate &&
-      python manage.py runserver 0.0.0.0:8000"
-    volumes:
-      - ../backend/Backend:/code
+    build: ./backend/Backend
     depends_on:
       - db
-    environment:
-      DATABASE_URL: postgres://bnex:bnexpwd@db:5432/bnexdb
-    working_dir: /code
     ports:
       - "8000:8000"
+    environment:
+      DATABASE_URL: postgres://bnex:bnexpwd@db:5432/bnexdb
 
   frontend:
-    image: node:latest
-    command: /bin/bash -c "npm install && npm start"
-    volumes:
-      - ../frontend/bnexfront:/app 
-      - /app/node_modules
+    build: ./frontend/bnexfront
     depends_on:
       - backend
-    environment:
-      REACT_APP_BACKEND_URL: "http://backend:8000"
-    working_dir: /app
     ports:
       - "3000:3000"
+    environment:
+      REACT_APP_BACKEND_URL: "http://backend:8000"
 
 volumes:
   postgres_data:
-networks:
-  default:
-    name: my_internal_network
