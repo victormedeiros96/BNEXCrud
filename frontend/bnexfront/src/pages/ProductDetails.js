@@ -18,13 +18,13 @@ const ProductDetails = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Erro ao remover o produto');
-        }
-        navigate('/products');
-      })
-      .catch(error => console.error('Error removing product: ', error));
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Erro ao remover o produto');
+          }
+          navigate('/products');
+        })
+        .catch(error => console.error('Error removing product: ', error));
     }
   };
   useEffect(() => {
@@ -34,14 +34,14 @@ const ProductDetails = () => {
         Authorization: `Bearer ${token}`
       }
     })
-    .then(response => {
-      if (response.ok) {
-        return response.json();
-      }
-      throw new Error('Network response was not ok.');
-    })
-    .then(data => setProduct(data))
-    .catch(error => console.error('Error fetching product: ', error));
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        }
+        throw new Error('Network response was not ok.');
+      })
+      .then(data => setProduct(data))
+      .catch(error => console.error('Error fetching product: ', error));
   }, [id]);
 
   if (!product) {
@@ -56,8 +56,10 @@ const ProductDetails = () => {
           <span className="card-title">{product.nome}</span>
           <p>{product.descricao}</p>
           <p className="grey-text">R$ {product.valor}</p>
-          <button className="btn" onClick={() => navigate(`/edit/${id}`)}>Editar</button>
-          <button className="btn" onClick={handleDelete}>Deletar</button>
+          <div className="row">
+            <button className="col s5 btn" onClick={() => navigate(`/edit/${id}`)}>Editar</button>
+            <button className="col s5 offset-s2 btn" onClick={handleDelete}>Deletar</button>
+          </div>
         </div>
       </div>
     </div>
